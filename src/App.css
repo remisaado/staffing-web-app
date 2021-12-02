@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Arial", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  color: rgba(255, 255, 255);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url("./myImg.jpeg");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+Footer {
+  color: rgba(225, 225, 225);
+  width: 100%;
+  background-color: rgba(45, 45, 45);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0;
+}
+
+.infoContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-basis: 33.333%;
+  padding: 10vh 0;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-size: 2.3em;
+  padding: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ul {
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+li {
+  margin: 2em;
+  font-weight: 700;
+  align-self: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255);
+}
+
+a:hover {
+  color: rgba(220, 220, 220);
+}
+
+.menuBarIcon {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  li {
+    margin: 0;
+    padding: 1em 20px;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .infoContainer {
+    flex-basis: 100%;
+    padding: 5vh 0;
+  }
+
+  .menuBarIcon {
+    display: inline;
+    float: right;
+    padding: 10px;
+    margin: 25px;
+    font-size: 1.5em;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100%;
+    z-index: 5;
+    background-color: #FF8A00;
+  }
+
+  .menuMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
