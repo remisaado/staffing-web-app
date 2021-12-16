@@ -1,16 +1,13 @@
 import './App.css';
-import { Footer, MenuNavigation } from './components';
+import { Footer, Header } from './components';
 
 function App() {
 
   return (
     <div>
-      <header className="header">
-        <div className="container">
-          <h1 className="title">Lärarcentralen</h1>
-          <MenuNavigation/>
-        </div>
-      </header>
+      <div className="container">
+        <Header/>
+      </div>
       <Footer/>
     </div>
   );
