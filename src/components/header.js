@@ -4,10 +4,12 @@ import { MenuNavigation } from '../components'
 const Header = () => {
 
   return (
-    <header className="header">
-      <h1 className="title">Lärarcentralen</h1>
-      <MenuNavigation/>
-    </header>
+    <div className="headerContainer">
+      <header id="header">
+        <h1 className="title">Lärarcentralen</h1>
+        <MenuNavigation/>
+      </header>
+    </div>
   );
 }
 

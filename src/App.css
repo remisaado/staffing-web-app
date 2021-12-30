@@ -1,6 +1,20 @@
 /*General*/
 :root {
-  --theme: #FF8A00;
+  --lighterTheme: hsl(210, 75.5%, 73.1%);
+  --lightTheme: hsl(210, 75.5%, 58.1%);
+  --theme: hsl(210, 75.5%, 43.1%);
+  --darkTheme: hsl(210, 75.5%, 28.1%);
+  --darkerTheme: hsl(210, 75.5%, 13.1%);
+
+  --lighterThemeTrsp: hsla(210, 75.5%, 73.1%, 0.75);
+  --lightThemeTrsp: hsla(210, 75.5%, 58.1%, 0.75);
+  --themeTrsp: hsla(210, 75.5%, 43.1%, 0.75);
+  --darkThemeTrsp: hsla(210, 75.5%, 28.1%, 0.75);
+  --darkerThemeTrsp: hsla(210, 75.5%, 13.1%, 0.75);
+
+  --transparent: hsla(0, 100%, 100%, 0);
+  --white: hsl(0, 100%, 100%);
+  --black: hsl(0, 0%, 0%)
 }
 
 * {
@@ -12,17 +26,17 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-.container {
+.headerContainer {
   color: #fff;
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url("./images/iStock-1177184973.jpg");
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0.2)), url("./images/iStock-469968322.jpg");
 }
 
-ul {
+#mainMenu {
   list-style-type: none;
   text-align: center;
   display: flex;
@@ -30,44 +44,59 @@ ul {
   height: 100%;
 }
 
-li {
-  margin: 1.8em;
+#mainMenu li {
+  margin: 2rem;
   align-self: center;
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 
-a {
+#mainMenu a {
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.25s;
-
+  transition: all 0.35s;
+  color: var(--white);
 }
 
-a:hover {
-  opacity: 0.75;
+#mainMenu a:hover {
+  opacity: 0.5;
   font-size: 1.02em;
 }
 /*Header*/
-.header {
+#header {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
 .title {
-  font-size: 2.3em;
-  padding: 25px;
+  font-size: 2.3rem;
+  margin: 2rem 0 0 2rem;
 }
 /*MenuNavigation*/
 .menuBarIcon {
   display: none;
   cursor: pointer;
 }
+/*Bodies*/
+.textContainer {
+  margin: 2rem 1.5rem;
+}
+
+.textContainer h1, h2, h3 {
+  margin: 0 0 1rem 0;
+  color: var(--darkerTheme);
+}
+
+.textContainer p {
+  color: rgb(50, 50, 50);
+  line-height: 1.6rem;
+  margin: 0 0 1.5rem 0;
+}
 /*Footer*/
-Footer {
+#footer {
   color: rgba(225, 225, 225);
   width: 100%;
-  background-color: rgba(45, 45, 45);
+  background-color: rgba(50, 50, 50);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -84,16 +113,74 @@ Footer {
 }
 
 .iconStyle {
-  font-size: 1.8em;
+  font-size: 1.8rem;
   padding-bottom: 2px;
 }
 
-@media (max-width: 1080px) {
+/*SchoolForm*/
+.schoolFormSection {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(hsla(210, 75.5%, 43.1%, 0.75), hsla(210, 75.5%, 43.1%, 0.75)), url("./images/iStock-1177608272.jpg");
+}
+
+.substitutesFormSection {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(hsla(210, 75.5%, 43.1%, 0.75), hsla(210, 75.5%, 43.1%, 0.75)), url("./images/iStock-1177608272.jpg");
+}
+
+.form {
+  display: flex;
+  padding: 5vh 25vw;
+  flex-direction: column;
+  color: var(--darkerTheme);
+}
+
+.form h2 {
+  margin: 0 0 1rem 0;
+}
+
+.form input, textArea {
+  padding: 0.4rem;
+  background-color: var(--lighterThemeTrsp);
+  color: var(--black);
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.form label {
+  margin: 0.25rem 0 0.25rem 0.1rem;
+  font-weight: bold;
+}
+
+.form button {
+  margin: 0.75rem 0 0 0;
+  padding: 0.5rem;
+  background-color: var(--darkerThemeTrsp);
+  color: var(--white);
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.form button:hover {
+  background-color: var(--darkThemeTrsp);
+}
+
+.form button:active {
+  background-color: var(--lightThemeTrsp);
+}
+
+@media (max-width: 900px) {
 /*General*/
-  ul {
+  #mainMenu {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
+    padding: 4rem 0;
     width: 320px;
     height: 100%;
     z-index: 5;
@@ -101,11 +188,11 @@ Footer {
     background-color: var(--theme);
   }
 
-  li {
+  #mainMenu li {
     margin: 0;
-    padding: 1em 20px;
+    padding: 1.15rem 20px;
     text-align: left;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     width: 280px;
   }
@@ -116,21 +203,24 @@ Footer {
   }
 
   .menuInactive {
-    transition: transform 0s;
-    transform: translateX(-100%);
+    transition: transform 0.5s;
+    transform: translateX(100%);
   }
 /*Header*/
   .title {
     text-align: center;
   }
-  /*MenuNavigation*/
+/*MenuNavigation*/
   .menuBarIcon {
-    display: inline;
-    float: right;
-    padding: 10px;
-    margin: 25px;
-    font-size: 1.5em;
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 5px;
+    font-size: 1.5rem;
+    z-index: 10;
   }
+
 /*
   .menu {
     position: fixed;
@@ -156,5 +246,8 @@ Footer {
     flex-basis: 100%;
     padding: 5vh 0;
   }
-
+/*SchoolForm*/
+  .form {
+    padding: 5vh 10vw;
+  }
 }

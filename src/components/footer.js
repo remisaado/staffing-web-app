@@ -6,7 +6,7 @@ import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
 
   return (
-    <footer>
+    <footer id="footer">
       <div className="infoContainer">
         <FontAwesomeIcon className="iconStyle" icon={faMobileAlt}/>
         <h4>Telefon</h4>
