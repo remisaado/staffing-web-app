@@ -3,8 +3,8 @@ import React from 'react';
 const SchoolForm = () => {
 
   return (
-    <section className="school-form-section">
-      <form className="school-form">
+    <section className="form-section school-form-section">
+      <form className="form">
         <h2>Fyll i formuläret för att boka en vikarie</h2>
         <label>Skola/Förskola</label>
         <input

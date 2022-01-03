@@ -3,8 +3,8 @@ import React from 'react';
 const SubstitutesForm = () => {
 
   return (
-    <section className="substitutes-form-section">
-      <form className="substitutes-form">
+    <section className="form-section substitutes-form-section">
+      <form className="form">
         <h2>Skicka in din ansökan</h2>
         <div className="form-group">
           <div className="form-object">
@@ -53,20 +53,14 @@ const SubstitutesForm = () => {
           <label><input type="radio" name="days" required/> 3-4 dagar</label>
           <label><input type="radio" name="days" required/> 4-5 dagar</label>
         </div>
-        <div className="form-group">
-          <div className="form-object">
-            <label>CV</label>
-            <input
-              type="file"
-              required/>
-          </div>
-          <div className="form-object">
-            <label>Personligt brev</label>
-            <input
-              type="file"
-              required/>
-          </div>
-        </div>
+        <label>CV</label>
+        <input
+          type="file"
+          required/>
+        <label>Personligt brev</label>
+        <input
+          type="file"
+          required/>
         <button>Skicka</button>
       </form>
     </section>
