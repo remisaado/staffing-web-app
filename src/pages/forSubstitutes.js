@@ -10,7 +10,7 @@ const ForSubstitutes = () => {
   return (
     <div>
       <div className="text-container">
-        <h3>{subheading}</h3>
+        <h2 className="subheading">{subheading}</h2>
         <p>{textBody}</p>
         <p>{textBodyTwo}</p>
       </div>

@@ -7,7 +7,7 @@ const About = () => {
 
   return (
     <div className="text-container">
-      <h2>Om Lärarcentralen</h2>
+      <h2 className="subheading">Om Lärarcentralen</h2>
       <p>{textBody}</p>
       <p>{textBodyTwo}</p>
     </div>

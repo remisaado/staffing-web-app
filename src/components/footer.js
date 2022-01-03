@@ -20,12 +20,14 @@ const Footer = () => {
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faBuilding}/>
         <h4>Adress</h4>
-        <p>Hemgatan 123, Göteborg</p>
+        <p>Hemgatan 123</p>
+        <p>Göteborg</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faClock}/>
         <h4>Öppettider</h4>
-        <p>Måndag - Fredag 00:00-00:00</p>
+        <p>Måndag - Fredag</p>
+        <p>00:00-00:00</p>
       </div>
     </footer>
   );

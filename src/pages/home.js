@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <div className="text-container">
-      <h2>{subheading}</h2>
+      <h2 className="subheading">{subheading}</h2>
       <p>{textBody}</p>
     </div>
   );

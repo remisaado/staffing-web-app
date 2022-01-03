@@ -124,7 +124,7 @@ body {
 .buttons-container a:hover {
   color: hsl(118, 70%, 43%);
   border-color: hsl(118, 70%, 43%);
-  box-shadow: 6px 6px 12px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 8px 8px 12px hsla(0, 0%, 0%, 0.2);
 }
 
 /*-menu-navigation*/
@@ -139,7 +139,7 @@ body {
   max-width: 50rem;
 }
 
-.text-container h1, h2, h3 {
+.subheading {
   margin: 0 0 1rem 0;
   color: var(--darkerTheme);
 }
@@ -204,6 +204,7 @@ body {
   background-color: hsla(210, 75.5%, 98%, 1);
   border: none;
   border-bottom: 0.15rem solid hsl(0, 0%, 60%);
+  transition: border-color 0.3s;
 }
 
 .form input:focus, textArea:focus {
@@ -240,6 +241,7 @@ body {
   border: none;
   background-color: var(--theme);
   color: var(--white);
+  transition: background-color 0.3s;
 }
 
 .form button:hover {
