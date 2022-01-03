@@ -12,15 +12,15 @@ function MenuNavigation() {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   })
-{/*
-  const menuTransitions = useTransition(menuToggled, {
-    from: { opacity: 0, transform: 'translateX(-100%)' },
-    enter: { opacity: 1, transform: 'translateX(0%)'  },
-    leave: { opacity: 0, transform: 'translateX(-100%)'  },
-  })
-*/}
+// {
+//   const menuTransitions = useTransition(menuToggled, {
+//     from: { opacity: 0, transform: 'translateX(-100%)' },
+//     enter: { opacity: 1, transform: 'translateX(0%)'  },
+//     leave: { opacity: 0, transform: 'translateX(-100%)'  },
+//   })
+// }
   return (
-    <menuNavigation>
+    <div>
       <FontAwesomeIcon
         className="menuBarIcon"
         icon={menuToggled ? faTimes : faBars}
@@ -39,35 +39,35 @@ function MenuNavigation() {
               <Link
                 to="/for-skolor"
                 onClick={() => setMenuToggled(!menuToggled)}>
-                För skolor
+                FÖR SKOLOR
               </Link>
             </li>
             <li>
               <Link
                 to="/for-vikarier"
                 onClick={() => setMenuToggled(!menuToggled)}>
-                För vikarier
+                FÖR VIKARIER
               </Link>
             </li>
             <li>
               <Link
                 to="/om-oss"
                 onClick={() => setMenuToggled(!menuToggled)}>
-                Om oss
+                OM OSS
               </Link>
             </li>
             <li>
               <Link
                 to="/kontakt"
                 onClick={() => setMenuToggled(!menuToggled)}>
-                Kontakt
+                KONTAKT
               </Link>
             </li>
             <li>
               <Link
                 to="/"
                 onClick={() => setMenuToggled(!menuToggled)}>
-                Logga in
+                LOGGA IN
               </Link>
             </li>
           </ul>
@@ -78,7 +78,7 @@ function MenuNavigation() {
             className="menuMask"
             onClick={() => setMenuToggled(false)}/>
           )}
-    </menuNavigation>
+    </div>
   )
 }
 
