@@ -3,17 +3,17 @@ import React from 'react';
 const SubstitutesForm = () => {
 
   return (
-    <section className="substitutesFormSection">
-      <form className="substitutesForm">
+    <section className="substitutes-form-section">
+      <form className="substitutes-form">
         <h2>Skicka in din ansökan</h2>
-        <div className="formGroup">
-          <div className="formObject">
+        <div className="form-group">
+          <div className="form-object">
             <label>Förnamn</label>
             <input
               type="text"
               required/>
           </div>
-          <div className="formObject">
+          <div className="form-object">
             <label>Efternamn</label>
             <input
               type="text"
@@ -32,14 +32,14 @@ const SubstitutesForm = () => {
           <input
             type="text"
             required/>
-        <div className="formGroup">
-          <div className="formObject">
+        <div className="form-group">
+          <div className="form-object">
             <label>Ort</label>
             <input
               type="text"
               required/>
           </div>
-          <div className="formObject flexShrink">
+          <div className="form-object flex-shrink">
             <label>Postnummer</label>
             <input
               type="text"
@@ -47,20 +47,20 @@ const SubstitutesForm = () => {
           </div>
         </div>
         <label>Ungefär hur ofta kan du jobba?</label>
-        <div className="radioContainer">
+        <div className="radio-container">
           <label><input type="radio" name="days" required/> 1-2 dagar</label>
           <label><input type="radio" name="days" required/> 2-3 dagar</label>
           <label><input type="radio" name="days" required/> 3-4 dagar</label>
           <label><input type="radio" name="days" required/> 4-5 dagar</label>
         </div>
-        <div className="formGroup">
-          <div className="formObject">
+        <div className="form-group">
+          <div className="form-object">
             <label>CV</label>
             <input
               type="file"
               required/>
           </div>
-          <div className="formObject">
+          <div className="form-object">
             <label>Personligt brev</label>
             <input
               type="file"

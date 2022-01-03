@@ -3,8 +3,8 @@ import React from 'react';
 const SchoolForm = () => {
 
   return (
-    <section className="schoolFormSection">
-      <form className="schoolForm">
+    <section className="school-form-section">
+      <form className="school-form">
         <h2>Fyll i formuläret för att boka en vikarie</h2>
         <label>Skola/Förskola</label>
         <input
@@ -14,14 +14,14 @@ const SchoolForm = () => {
         <input
           type="text"
           required/>
-        <div className="formGroup">
-          <div className="formObject">
+        <div className="form-group">
+          <div className="form-object">
             <label>Kontaktperson</label>
             <input
               type="text"
               required/>
           </div>
-          <div className="formObject">
+          <div className="form-object">
             <label>Telefon</label>
             <input
               type="tel"

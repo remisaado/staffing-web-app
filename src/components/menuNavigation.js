@@ -22,7 +22,7 @@ function MenuNavigation() {
   return (
     <div>
       <FontAwesomeIcon
-        className="menuBarIcon"
+        className="menu-bar-icon"
         icon={menuToggled ? faTimes : faBars}
         onClick={() => setMenuToggled(!menuToggled)}/>
         {/*menuTransitions(
@@ -33,8 +33,8 @@ function MenuNavigation() {
           </animated.div>
         )*/}
           <ul
-            id="mainMenu"
-            className={menuToggled ? "menuActive" : "menuInactive"}>
+            id="main-menu"
+            className={menuToggled ? "menu-active" : "menu-inactive"}>
             <li>
               <Link
                 to="/for-skolor"
@@ -75,7 +75,7 @@ function MenuNavigation() {
           (styles, item) => item &&
           <animated.div
             style={styles}
-            className="menuMask"
+            className="menu-mask"
             onClick={() => setMenuToggled(false)}/>
           )}
     </div>

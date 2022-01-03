@@ -6,17 +6,17 @@ import { Link, useLocation } from 'react-router-dom';
 const Header = () => {
 
   const {pathname} = useLocation();
-  const headerImageClass = pathname === "/" ? "homeImage" : (pathname === "/for-skolor" ? "schoolsImage" : (pathname === "/for-vikarier" ? "substitutesImage" : (pathname === "/om-oss" ? "aboutImage" : (pathname === "/kontakt" ? "contactImage" : ""))));
+  const headerImageClass = pathname === "/" ? "home-image" : (pathname === "/for-skolor" ? "schools-image" : (pathname === "/for-vikarier" ? "substitutes-image" : (pathname === "/om-oss" ? "about-image" : (pathname === "/kontakt" ? "contact-image" : ""))));
 
   return (
-    <div className={`headerContainer ${headerImageClass}`}>
+    <div className={`header-container ${headerImageClass}`}>
       <header id="header">
-        <Link to="/" className="logoContainer">
+        <Link to="/" className="logo-container">
           <img src={Logo} className="logo" alt="Logo"/>
         </Link>
         <MenuNavigation/>
       </header>
-      <div className="buttonsContainer">
+      <div className="buttons-container">
         <Link to="/for-vikarier">SÖK JOBB</Link>
         <Link to="/for-skolor">HYR VIKARIE</Link>
       </div>

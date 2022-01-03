@@ -6,7 +6,7 @@ const About = () => {
   const textBodyTwo = "Våra nyckelord är stöttning och kompetens. Stöd för er som skola, stöd för personalgruppen och stöttning för eleverna i klassrummet. Kompetens i form av vikarieförmedling, kvalité på undervisningen och social kompetens.";
 
   return (
-    <div className="textContainer">
+    <div className="text-container">
       <h2>Om Lärarcentralen</h2>
       <p>{textBody}</p>
       <p>{textBodyTwo}</p>

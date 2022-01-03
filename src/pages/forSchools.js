@@ -9,7 +9,7 @@ const ForSchools = () => {
 
   return (
     <div>
-      <div className="textContainer">
+      <div className="text-container">
         <p>{textBody}</p>
         <p>{textBodyTwo}</p>
         <p>{textBodyThree}</p>
