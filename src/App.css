@@ -27,6 +27,7 @@ body {
 }
 /*Header*/
 .header-container {
+  position: relative;
   color: #fff;
   width: 100%;
   height: 85vh;
@@ -56,6 +57,20 @@ body {
   background-image: linear-gradient(hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0.6)), url("./images/iStock-5.jpg");
 }
 
+.main-page-text {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
 #header {
   display: flex;
   justify-content: space-between;
@@ -67,7 +82,7 @@ body {
   width: min(250px, 70vw);
 }
 
-  .logo-container {
+.logo-container {
   margin: 2rem 0 0 1.5rem;
 }
 
@@ -198,16 +213,18 @@ body {
   margin: 0 0 1rem 0;
 }
 
-.form input, textArea {
+.form input,
+.form textArea {
   padding: 0.8rem;
   outline: none;
-  background-color: hsla(210, 75.5%, 98%, 1);
+  background-color: hsla(0, 0%, 98%, 1);
   border: none;
-  border-bottom: 0.15rem solid hsl(0, 0%, 60%);
+  border-bottom: 0.1rem solid hsl(0, 0%, 60%);
   transition: border-color 0.3s;
 }
 
-.form input:focus, textArea:focus {
+.form input:focus,
+.form textArea:focus {
   border-color: #05f7ff;
 }
 
@@ -228,7 +245,8 @@ body {
   font-size: 0.95rem;
 }
 
-.form label, h2 {
+.form label,
+.form h2 {
   margin: 0.25rem 0.1rem 0.25rem;
   color: var(--darkerTheme);
 }
@@ -339,6 +357,10 @@ body {
 }
 
 @media (max-width: 500px) {
+
+  .main-page-text h1 {
+    font-size: 1.7rem;
+  }
 
   .buttons-container {
     flex-direction: column;

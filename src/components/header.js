@@ -16,6 +16,11 @@ const Header = () => {
         </Link>
         <MenuNavigation/>
       </header>
+      <div className={pathname === "/" ? "main-page-text" : "hide"}>
+        <h1>
+          Vikariebemanning till skolor och förskolor
+        </h1>
+      </div>
       <div className="buttons-container">
         <Link to="/for-vikarier">SÖK JOBB</Link>
         <Link to="/for-skolor">HYR VIKARIE</Link>
