@@ -6,15 +6,9 @@
   --darkTheme: hsl(210, 75.5%, 28.1%);
   --darkerTheme: hsl(210, 75.5%, 13.1%);
 
-  --lighterThemeTrsp: hsla(210, 75.5%, 73.1%, 0.7);
-  --lightThemeTrsp: hsla(210, 75.5%, 58.1%, 0.7);
-  --themeTrsp: hsla(210, 75.5%, 43.1%, 0.7);
-  --darkThemeTrsp: hsla(210, 75.5%, 28.1%, 0.7);
-  --darkerThemeTrsp: hsla(210, 75.5%, 13.1%, 0.7);
-
   --transparent: hsla(0, 100%, 100%, 0);
   --white: hsl(0, 100%, 100%);
-  --black: hsl(0, 0%, 0%)
+  --black: hsl(0, 0%, 0%);
 }
 
 * {
@@ -24,6 +18,15 @@
 
 body {
   font-family: "Arial", sans-serif;
+}
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.disable-scroll {
+  overflow: hidden;
 }
 /*Header*/
 .header-container {
@@ -42,7 +45,7 @@ body {
 }
 
 .schools-image {
-  background-image: linear-gradient(hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0.6)), url("./images/iStock-2.jpg");
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0.6)), url("./images/iStock-6.jpg");
 }
 
 .substitutes-image {
@@ -55,20 +58,6 @@ body {
 
 .contact-image {
   background-image: linear-gradient(hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0.6)), url("./images/iStock-5.jpg");
-}
-
-.main-page-text {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-}
-
-.hide {
-  display: none;
 }
 
 #header {
@@ -112,6 +101,20 @@ body {
   font-size: 1.02em;
 }
 
+.main-page-text {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
 .buttons-container {
   display: flex;
   position: absolute;
@@ -127,7 +130,7 @@ body {
   margin: 0.5rem;
   padding: 1.1rem 2.5rem;
   color: var(--lightTheme);
-  background-color: hsla(0, 0%, 0%, 0);
+  background-color: var(--transparent);
   border: 0.1rem solid var(--lightTheme);
   border-radius: 0.1rem;
   text-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.3);
@@ -149,7 +152,7 @@ body {
 }
 /*Bodies*/
 .text-container {
-  margin: 2rem auto;
+  margin: 15vh auto;
   padding: 0 2rem;
   max-width: 50rem;
 }
@@ -190,23 +193,15 @@ body {
 }
 
 /*Forms*/
-.school-form-section {
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(hsla(210, 75.5%, 43.1%, 0.6), hsla(210, 75.5%, 43.1%, 0.6)), url("./images/iStock-6.jpg"); */
-}
-
-.substites-form-section {
-
-}
-
 .form {
   display: flex;
   flex-direction: column;
   padding: 3rem 2rem;
-  margin: 0 auto;
+  margin: 10vh auto;
   max-width: 50rem;
+  background-color: hsl(210, 75.5%, 97%);
+  border: 0.1rem solid hsl(210, 75.5%, 94%);
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.15), -2px -2px 5px hsla(0, 0%, 0%, 0.15);
 }
 
 .form h2 {
@@ -217,20 +212,21 @@ body {
 .form textArea {
   padding: 0.8rem;
   outline: none;
-  background-color: hsla(0, 0%, 98%, 1);
+  background-color: var(--transparent);
   border: none;
   border-bottom: 0.1rem solid hsl(0, 0%, 60%);
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 }
 
 .form input:focus,
 .form textArea:focus {
   border-color: #05f7ff;
+  background-color: hsla(0, 0%, 100%, 1);
 }
 
 .form input[type="file"] {
   padding: 0.8rem 0;
-  background-color: hsla(0, 0%, 50%, 0);
+  background-color: var(--transparent);
   border: none;
 }
 
@@ -247,7 +243,7 @@ body {
 
 .form label,
 .form h2 {
-  margin: 0.25rem 0.1rem 0.25rem;
+  margin: 0.5rem 0.1rem 0.5rem;
   color: var(--darkerTheme);
 }
 

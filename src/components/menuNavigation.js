@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTransition, animated } from 'react-spring';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 function MenuNavigation() {
   const [menuToggled, setMenuToggled] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('disable-scroll', menuToggled);
+  },[menuToggled])
 
   const menuMaskTransitions = useTransition(menuToggled, {
     from: { opacity: 0 },
