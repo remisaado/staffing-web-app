@@ -21,7 +21,7 @@ const Header = () => {
           Vikariebemanning till skolor och förskolor
         </h1>
       </div>
-      <div className="buttons-container">
+      <div className={pathname === "/" ? "buttons-container" : "hide"}>
         <Link to="/for-vikarier">SÖK JOBB</Link>
         <Link to="/for-skolor">HYR VIKARIE</Link>
       </div>
