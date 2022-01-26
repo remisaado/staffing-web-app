@@ -42,35 +42,35 @@ function MenuNavigation() {
             <li>
               <Link
                 to="/for-skolor"
-                onClick={() => setMenuToggled(!menuToggled)}>
+                onClick={() => setMenuToggled(false)}>
                 FÖR SKOLOR
               </Link>
             </li>
             <li>
               <Link
                 to="/for-vikarier"
-                onClick={() => setMenuToggled(!menuToggled)}>
+                onClick={() => setMenuToggled(false)}>
                 FÖR VIKARIER
               </Link>
             </li>
             <li>
               <Link
                 to="/om-oss"
-                onClick={() => setMenuToggled(!menuToggled)}>
+                onClick={() => setMenuToggled(false)}>
                 OM OSS
               </Link>
             </li>
             <li>
               <Link
                 to="/kontakt"
-                onClick={() => setMenuToggled(!menuToggled)}>
+                onClick={() => setMenuToggled(false)}>
                 KONTAKT
               </Link>
             </li>
             <li>
               <Link
                 to="/"
-                onClick={() => setMenuToggled(!menuToggled)}>
+                onClick={() => setMenuToggled(false)}>
                 LOGGA IN
               </Link>
             </li>
