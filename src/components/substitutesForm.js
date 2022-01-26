@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
 const SubstitutesForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -12,9 +13,33 @@ const SubstitutesForm = () => {
   const [cvFile, setCvFile] = useState(null);
   const [otherFile, setOtherFile] = useState(null);
 
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    
+    try {
+      await axios.post("http://localhost:4000/send_substitutes_form", {
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        city,
+        postalCode,
+        availability,
+        cvFile,
+        otherFile
+      });
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <section className="form-section substitutes-form-section">
-      <form className="form">
+      <form
+        className="form"
+        onSubmit={handleSubmit}>
         <h2>Skicka in din ansökan</h2>
         <div className="form-group">
           <div className="form-object">
@@ -89,7 +114,7 @@ const SubstitutesForm = () => {
           type="file"
           onChange={(e) => setOtherFile(e.target.files[0])}
           required/>
-        <button>Skicka</button>
+        <button type="submit">Skicka</button>
       </form>
     </section>
   );

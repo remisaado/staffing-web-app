@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
 const SchoolForm = () => {
   const [school, setSchool] = useState("");
@@ -10,9 +11,70 @@ const SchoolForm = () => {
   const [time, setTime] = useState("");
   const [info, setInfo] = useState("");
 
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:4000/send_schools_form", {
+        school,
+        address,
+        name,
+        phone,
+        email,
+        date,
+        time,
+        info
+      });
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //
+  //   let formData = {
+  //     school: school,
+  //     address: address,
+  //     name: name,
+  //     phone: phone,
+  //     email: email,
+  //     date: date,
+  //     time: time,
+  //     info: info,
+  //   }
+  //
+  //   let xhr = new XMLHttpRequest();
+  //   xhr.open("POST", "/for-skolor");
+  //   xhr.setRequestHeader("content-type", "application/json");
+  //
+  //   xhr.onload = function() {
+  //     console.log(xhr.responseText);
+  //
+  //     if(xhr.responseText == "success") {
+  //       alert("Email sent");
+  //       setSchool("");
+  //       setAddress("");
+  //       setName("");
+  //       setPhone("");
+  //       setEmail("");
+  //       setDate("");
+  //       setTime("");
+  //       setInfo("");
+  //     }
+  //     else {
+  //       alert("Something went wrong!");
+  //     }
+  //   }
+  //   xhr.send(JSON.stringify.formData);
+  // }
+
   return (
     <section className="form-section school-form-section">
-      <form className="form">
+      <form
+        className="form"
+        onSubmit={handleSubmit}>
         <h2>Fyll i formuläret för att boka en vikarie</h2>
         <label>Skola/Förskola</label>
         <input
@@ -66,7 +128,7 @@ const SchoolForm = () => {
         <textarea
           value={info}
           onChange={(e) => setInfo(e.target.value)}/>
-        <button>Skicka</button>
+        <button type="submit">Skicka</button>
       </form>
     </section>
   );
