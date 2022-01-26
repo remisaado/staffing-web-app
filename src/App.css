@@ -92,33 +92,45 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.35s;
+  transition: all 0.4s;
   color: var(--white);
 }
 
 #main-menu a:hover {
-  opacity: 0.5;
+  color: var(--theme);
   font-size: 1.02em;
-}
-
-.main-page-text {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
 }
 
 .hide {
   display: none;
 }
 
+.main-page-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.main-page-text {
+  /* position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0; */
+  margin: 0 auto;
+  max-width: 60vw;
+  text-align: center;
+  color: white;
+}
+
+.main-page-text p {
+  margin: 0.4rem 0;
+}
+
 .buttons-container {
   display: flex;
-  position: absolute;
-  top: 60%;
+  /* position: absolute;
+  top: 60%; */
   justify-content: center;
   width: 100%;
 }
@@ -304,6 +316,12 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   }
 
+  #main-menu a:hover {
+    opacity: 0.5;
+    color: var(--white);
+    font-size: 1em;
+  }
+
   .menu-active {
     transition: transform 0.5s;
     transform: translateX(0%);
@@ -312,6 +330,14 @@ body {
   .menu-inactive {
     transition: transform 0.5s;
     transform: translateX(100%);
+  }
+
+  .main-page-container {
+    top: 45%;
+  }
+
+  .main-page-text {
+    max-width: 80vw;
   }
 /*-menu-navigation*/
   .menu-bar-icon {
@@ -354,8 +380,20 @@ body {
 
 @media (max-width: 500px) {
 
+  .main-page-container {
+    top: 40%;
+  }
+
+  .main-page-text {
+    max-width: 95vw;
+  }
+
   .main-page-text h1 {
     font-size: 1.7rem;
+  }
+
+  .main-page-text p {
+    font-size: 0.95rem;
   }
 
   .buttons-container {

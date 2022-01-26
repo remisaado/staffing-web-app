@@ -16,14 +16,21 @@ const Header = () => {
         </Link>
         <MenuNavigation/>
       </header>
-      <div className={pathname === "/" ? "main-page-text" : "hide"}>
-        <h1>
-          Vikariebemanning till skolor och förskolor
-        </h1>
-      </div>
-      <div className={pathname === "/" ? "buttons-container" : "hide"}>
-        <Link to="/for-vikarier">SÖK JOBB</Link>
-        <Link to="/for-skolor">HYR VIKARIE</Link>
+      <div className="main-page-container">
+        <div className={pathname === "/" ? "main-page-text" : "hide"}>
+          <h1>
+            Vikariebemanning till skolor och förskolor
+          </h1>
+          <p>
+            Lärarcentralen arbetar med uthyrning av vikarier och rekrytering av personal till skolor och förskolor.
+            Vi strävar efter att vara det självklara valet när ni söker vikarier. Vi står redo med kompetent och
+            pålitlig personal oavsett om det handlar om kortare eller längre uppdrag
+          </p>
+        </div>
+        <div className={pathname === "/" ? "buttons-container" : "hide"}>
+          <Link to="/for-vikarier">SÖK JOBB</Link>
+          <Link to="/for-skolor">HYR VIKARIE</Link>
+        </div>
       </div>
     </div>
   );
