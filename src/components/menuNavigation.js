@@ -11,6 +11,12 @@ function MenuNavigation() {
     document.body.classList.toggle('disable-scroll', menuToggled);
   },[menuToggled])
 
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) {
+      setMenuToggled(false);
+    }
+  });
+
   const menuMaskTransitions = useTransition(menuToggled, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
