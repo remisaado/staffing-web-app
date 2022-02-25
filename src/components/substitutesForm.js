@@ -15,7 +15,7 @@ const SubstitutesForm = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    
+
     try {
       await axios.post("http://localhost:4000/send_substitutes_form", {
         firstName,
@@ -112,7 +112,7 @@ const SubstitutesForm = () => {
         <label>Personligt brev</label>
         <input
           type="file"
-          onChange={(e) => setOtherFile(e.target.files[0])}
+          onChange={(e) => setOtherFile(e.target.files[1])}
           required/>
         <button type="submit">Skicka</button>
       </form>

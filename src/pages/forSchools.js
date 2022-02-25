@@ -13,6 +13,11 @@ const ForSchools = () => {
         <p>{textBody}</p>
         <p>{textBodyTwo}</p>
         <p>{textBodyThree}</p>
+        <p>
+          För att boka vikarier kan du nå oss genom mail,
+          hej@hotmail.com, telefon, 031-123456, formuläret nedan
+          eller så kan du boka genom <a>kundportalen</a>.
+        </p>
       </div>
       <SchoolForm/>
     </div>
