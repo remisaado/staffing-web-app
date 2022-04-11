@@ -4,11 +4,12 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const multer = require("multer");
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(cors());;
+app.use(cors());
 
 const transport = nodemailer.createTransport({
   host: "smtp-mail.outlook.com",
@@ -53,7 +54,19 @@ app.post("/send_schools_form", cors(), async (req, res) => {
   })
 });
 
-app.post("/send_substitutes_form", cors(), async (req, res) => {
+const upload = multer({
+  storage: multer.memoryStorage()
+});
+
+let middleware = [
+  cors(),
+  upload.fields([
+    {name: "cvFile", maxCount: 1},
+    {name: "otherFile", maxCount: 1}
+  ])
+];
+
+app.post("/send_substitutes_form", middleware, async (req, res) => {
   let {
     firstName,
     lastName,
@@ -62,9 +75,7 @@ app.post("/send_substitutes_form", cors(), async (req, res) => {
     address,
     city,
     postalCode,
-    availability,
-    cvFile,
-    otherFile
+    availability
   } = req.body;
 
   await transport.sendMail({
@@ -82,8 +93,12 @@ app.post("/send_substitutes_form", cors(), async (req, res) => {
     </ul>
     `,
     attachments: [{
-      filename: "",
-      path: ""
+      filename: req.files["cvFile"][0].originalname,
+      content: req.files["cvFile"][0].buffer
+    },
+    {
+      filename: req.files["otherFile"][0].originalname,
+      content: req.files["otherFile"][0].buffer
     }]
   })
 });

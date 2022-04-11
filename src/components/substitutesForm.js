@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from "axios";
 
 const SubstitutesForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,23 +15,23 @@ const SubstitutesForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    try {
-      await axios.post("http://localhost:4000/send_substitutes_form", {
-        firstName,
-        lastName,
-        email,
-        phone,
-        address,
-        city,
-        postalCode,
-        availability,
-        cvFile,
-        otherFile
-      });
-    }
-    catch (error) {
-      console.log(error);
-    }
+    let formData = new FormData();
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("address", address);
+    formData.append("city", city);
+    formData.append("postalCode", postalCode);
+    formData.append("availability", availability);
+    formData.append("cvFile", cvFile);
+    formData.append("otherFile", otherFile);
+
+    fetch("http://localhost:4000/send_substitutes_form", {
+      method: 'POST', body: formData
+    }).catch(error => {
+      console.error(error);
+    });
   }
 
   return (
@@ -112,7 +111,7 @@ const SubstitutesForm = () => {
         <label>Personligt brev</label>
         <input
           type="file"
-          onChange={(e) => setOtherFile(e.target.files[1])}
+          onChange={(e) => setOtherFile(e.target.files[0])}
           required/>
         <button type="submit">Skicka</button>
       </form>
