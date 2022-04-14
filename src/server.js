@@ -33,7 +33,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
     substitutes
   } = req.body;
 
-  var content = substitutes.reduce(function(a, b) {
+  var substitutesList = substitutes.reduce(function(a, b) {
   return a + '<ul><li>' + b.date + '</li><li>' + b.time + '</li><li>' + b.info + '</li></ul>';
 }, '');
 
@@ -49,7 +49,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
       <li>Telefon: ${phone}</li>
       <li>E-post: ${email}</li>
     </ul>
-    <ul>${content}</ul>
+    <ul>${substitutesList}</ul>
     `
   })
 });
