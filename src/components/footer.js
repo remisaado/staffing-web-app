@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faEnvelope}/>
         <h4>E-post</h4>
-        <p>hej@hotmail.com</p>
+        <p>kontakt@lararcentralen.se</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faBuilding}/>

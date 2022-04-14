@@ -30,10 +30,12 @@ app.post("/send_schools_form", cors(), async (req, res) => {
     name,
     phone,
     email,
-    date,
-    time,
-    info
+    substitutes
   } = req.body;
+
+  var content = substitutes.reduce(function(a, b) {
+  return a + '<ul><li>' + b.date + '</li><li>' + b.time + '</li><li>' + b.info + '</li></ul>';
+}, '');
 
   await transport.sendMail({
     from: `${name}`,
@@ -46,10 +48,8 @@ app.post("/send_schools_form", cors(), async (req, res) => {
       <li>Kontaktperson: ${name}</li>
       <li>Telefon: ${phone}</li>
       <li>E-post: ${email}</li>
-      <li>Startdatum: ${date}</li>
-      <li>Starttid och sluttid ${time}</li>
-      <li>Info om uppdrag: ${info}</li>
     </ul>
+    <ul>${content}</ul>
     `
   })
 });

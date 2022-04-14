@@ -10,12 +10,13 @@ const ForSchools = () => {
   return (
     <div>
       <div className="text-container">
+        <h1 className="subheading">Är ni i behov av personal? Vi finns här för er!</h1>
         <p>{textBody}</p>
         <p>{textBodyTwo}</p>
         <p>{textBodyThree}</p>
         <p>
           För att boka vikarier kan du nå oss genom mail,
-          hej@hotmail.com, telefon, 031-123456, formuläret nedan
+          kontakt@lararcentralen.se, telefon, 031-123456, formuläret nedan
           eller så kan du boka genom <a>kundportalen</a>.
         </p>
       </div>

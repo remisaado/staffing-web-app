@@ -94,14 +94,14 @@ const SubstitutesForm = () => {
               required/>
           </div>
         </div>
-        <label>Ungefär hur ofta kan du jobba?</label>
+        <label>Ungefär hur ofta kan du jobba i veckan?</label>
         <div
           className="radio-container"
           onChange={(e) => setAvailability(e.target.value)}>
-          <label><input type="radio" name="days" value="1-2" required/> 1-2 dagar</label>
-          <label><input type="radio" name="days" value="2-3" required/> 2-3 dagar</label>
-          <label><input type="radio" name="days" value="3-4" required/> 3-4 dagar</label>
-          <label><input type="radio" name="days" value="4-5" required/> 4-5 dagar</label>
+          <label><input type="radio" name="days" value="1-2"/> 1-2 dagar</label>
+          <label><input type="radio" name="days" value="2-3"/> 2-3 dagar</label>
+          <label><input type="radio" name="days" value="3-4"/> 3-4 dagar</label>
+          <label><input type="radio" name="days" value="4-5"/> 4-5 dagar</label>
         </div>
         <label>CV</label>
         <input
@@ -111,8 +111,7 @@ const SubstitutesForm = () => {
         <label>Personligt brev</label>
         <input
           type="file"
-          onChange={(e) => setOtherFile(e.target.files[0])}
-          required/>
+          onChange={(e) => setOtherFile(e.target.files[0])}/>
         <button type="submit">Skicka</button>
       </form>
     </section>

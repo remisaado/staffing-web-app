@@ -281,17 +281,45 @@ body {
   margin: 0.75rem 0 0 0;
   padding: 0.75rem 0.5rem;
   border: none;
-  background-color: var(--theme);
   color: var(--white);
   transition: background-color 0.3s;
 }
 
 .form button:hover {
-  background-color: var(--lightTheme);
+  opacity: 0.8;
 }
 
 .form button:active {
-  background-color: var(--lighterTheme);
+  opacity: 0.6;
+}
+
+.submit-button {
+  background-color: var(--theme);
+}
+
+.form-icons-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-icons {
+  padding: 10px;
+  color: white;
+  align-self: center;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+.form-icons:hover {
+  opacity: 0.8;
+}
+
+.remove-icon {
+  background-color: red;
+}
+
+.add-icon {
+  background-color: green;
 }
 
 .form-group {
@@ -309,6 +337,11 @@ body {
 
 .flex-shrink {
   flex-shrink: 2;
+}
+
+.divider {
+  margin: 2rem 0;
+  color: var(--darkTheme);
 }
 
 @media (max-width: 980px) {
@@ -441,5 +474,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+  }
+
+  .form-icons {
+    margin: 0.5rem 0.25rem;
+    flex-basis: 100%;
   }
 }
