@@ -236,6 +236,12 @@ body {
   margin: 0 0 1rem 0;
 }
 
+.substitute-number-header {
+  color: var(--darkerTheme);
+  margin: 0.75rem 0;
+  text-align: center;
+}
+
 .form input,
 .form textArea {
   padding: 0.8rem;
@@ -340,7 +346,6 @@ body {
 }
 
 .divider {
-  margin: 2rem 0;
   color: var(--darkTheme);
 }
 

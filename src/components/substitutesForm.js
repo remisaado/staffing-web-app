@@ -112,7 +112,9 @@ const SubstitutesForm = () => {
         <input
           type="file"
           onChange={(e) => setOtherFile(e.target.files[0])}/>
-        <button type="submit">Skicka</button>
+        <button
+          className="submit-button"
+          type="submit">Skicka</button>
       </form>
     </section>
   );

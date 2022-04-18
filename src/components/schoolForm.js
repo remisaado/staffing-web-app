@@ -80,7 +80,10 @@ const SchoolForm = () => {
   }
 
   const addSubstitute = () => {
-    setSubstitutes([...substitutes, {date: "", time: "", info: ""}]);
+    if(substitutes.length < 25)
+    {
+      setSubstitutes([...substitutes, {date: "", time: "", info: ""}]);
+    }
   }
 
   const removeSubstitute = (index) => {
@@ -134,9 +137,10 @@ const SchoolForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required/>
-        <hr className="divider"/>
         { substitutes.map((substitute, index) => (
           <div key={index}>
+            <p className="substitute-number-header">Vikarie #{index + 1}</p>
+            <hr className="divider"/>
             <div className="form-group">
               <div className="form-object">
                 <label>Startdatum</label>
@@ -176,7 +180,6 @@ const SchoolForm = () => {
                     onClick={() => addSubstitute()}/>
                 </div>
               </div>
-              <hr className="divider"/>
           </div>
         ))}
         <button
