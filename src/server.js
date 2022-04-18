@@ -34,7 +34,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
   } = req.body;
 
   var substitutesList = substitutes.reduce(function(a, b) {
-  return a + '<ul><li>' + b.date + '</li><li>' + b.time + '</li><li>' + b.info + '</li></ul>';
+  return a + '</br><ul><li>Startdatum: ' + b.date + '</li><li>Tid: ' + b.time + '</li><li>Info: ' + b.info + '</li></ul>';
 }, '');
 
   await transport.sendMail({
