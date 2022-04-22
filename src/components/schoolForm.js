@@ -139,8 +139,10 @@ const SchoolForm = () => {
           required/>
         { substitutes.map((substitute, index) => (
           <div key={index}>
-            <p className="substitute-number-header">Vikarie #{index + 1}</p>
-            <hr className="divider"/>
+            <div className={substitutes.length > 1 ? "" : "hide"}>
+              <p className="substitute-number-header">Vikarie #{index + 1}</p>
+              <hr className="divider"/>
+            </div>
             <div className="form-group">
               <div className="form-object">
                 <label>Startdatum</label>
