@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const SubstitutesForm = () => {
+  const [isVerified, setIsVerified] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +34,10 @@ const SubstitutesForm = () => {
     }).catch(error => {
       console.error(error);
     });
+  }
+
+  const handleCaptcha = () => {
+    setIsVerified(true);
   }
 
   return (
@@ -112,7 +118,12 @@ const SubstitutesForm = () => {
         <input
           type="file"
           onChange={(e) => setOtherFile(e.target.files[0])}/>
+        <ReCAPTCHA
+          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          onChange={handleCaptcha}
+        />
         <button
+          disabled={!isVerified}
           className="submit-button"
           type="submit">Skicka</button>
       </form>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const SchoolForm = () => {
+  const [isVerified, setIsVerified] = useState(false);
   const [school, setSchool] = useState("");
   const [address, setAddress] = useState("");
   const [name, setName] = useState("");
@@ -72,6 +74,10 @@ const SchoolForm = () => {
   //   }
   //   xhr.send(JSON.stringify.formData);
   // }
+
+  const handleCaptcha = () => {
+    setIsVerified(true);
+  }
 
   const handleInputChange = (index, event) => {
     const values = [...substitutes];
@@ -184,7 +190,12 @@ const SchoolForm = () => {
               </div>
           </div>
         ))}
+        <ReCAPTCHA
+          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          onChange={handleCaptcha}
+        />
         <button
+          disabled={!isVerified}
           className="submit-button"
           type="submit">Skicka</button>
       </form>
