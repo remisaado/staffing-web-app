@@ -100,6 +100,13 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
       filename: req.files["otherFile"][0].originalname,
       content: req.files["otherFile"][0].buffer
     }]
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(400).send('Error');
+    } else {
+      res.status(200).send('Success');
+    }
   })
 });
 

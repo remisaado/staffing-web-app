@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
 
 const SubstitutesForm = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -13,8 +14,9 @@ const SubstitutesForm = () => {
   const [availability, setAvailability] = useState("");
   const [cvFile, setCvFile] = useState(null);
   const [otherFile, setOtherFile] = useState(null);
+  const navigate = useNavigate();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     let formData = new FormData();
@@ -30,9 +32,17 @@ const SubstitutesForm = () => {
     formData.append("otherFile", otherFile);
 
     fetch("http://localhost:4000/send_substitutes_form", {
-      method: 'POST', body: formData
-    }).catch(error => {
-      console.error(error);
+      method: 'POST',
+      body: formData
+    }).then((res) => {
+      if (res.ok)
+      {
+        console.log("Res is ok!");
+      }
+      else
+      {
+        console.log("There has been an error!");
+      }
     });
   }
 
@@ -117,7 +127,8 @@ const SubstitutesForm = () => {
         <label>Personligt brev</label>
         <input
           type="file"
-          onChange={(e) => setOtherFile(e.target.files[0])}/>
+          onChange={(e) => setOtherFile(e.target.files[0])}
+          required/>
         <ReCAPTCHA
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={handleCaptcha}
