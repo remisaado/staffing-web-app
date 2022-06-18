@@ -51,6 +51,13 @@ app.post("/send_schools_form", cors(), async (req, res) => {
     </ul>
     <ul>${substitutesList}</ul>
     `
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(400).send('Error');
+    } else {
+      res.status(200).send('Success');
+    }
   })
 });
 

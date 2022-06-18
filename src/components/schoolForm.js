@@ -11,12 +11,10 @@ const SchoolForm = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [info, setInfo] = useState("");
   const [substitutes, setSubstitutes] = useState([
     {date: "", time: "", info: ""}
 ]);
+  // const navigate = useNavigate();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -29,51 +27,38 @@ const SchoolForm = () => {
         phone,
         email,
         substitutes
+      }).then((res) => {
+        if (res.status)
+        {
+          console.log("Res is ok!");
+        }
+        else
+        {
+          console.log("There has been an error!");
+        }
       });
     }
     catch (error) {
       console.log(error);
     }
-  }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //
-  //   let formData = {
-  //     school: school,
-  //     address: address,
-  //     name: name,
-  //     phone: phone,
-  //     email: email,
-  //     date: date,
-  //     time: time,
-  //     info: info,
-  //   }
-  //
-  //   let xhr = new XMLHttpRequest();
-  //   xhr.open("POST", "/for-skolor");
-  //   xhr.setRequestHeader("content-type", "application/json");
-  //
-  //   xhr.onload = function() {
-  //     console.log(xhr.responseText);
-  //
-  //     if(xhr.responseText == "success") {
-  //       alert("Email sent");
-  //       setSchool("");
-  //       setAddress("");
-  //       setName("");
-  //       setPhone("");
-  //       setEmail("");
-  //       setDate("");
-  //       setTime("");
-  //       setInfo("");
-  //     }
-  //     else {
-  //       alert("Something went wrong!");
-  //     }
-  //   }
-  //   xhr.send(JSON.stringify.formData);
-  // }
+    // let formData = new FormData();
+    // formData.append("school", school);
+    // formData.append("address", address);
+    // formData.append("name", name);
+    // formData.append("phone", phone);
+    // formData.append("email", email);
+    // substitutes.forEach(substitute => {
+    //   formData.append("substitutes", JSON.stringify(substitute))
+    // });
+    //
+    // console.log(formData.getAll('substitutes'));
+    //
+    // fetch("http://localhost:4000/send_schools_form", {
+    //   method: 'POST',
+    //   body: formData
+    // })
+  }
 
   const handleCaptcha = () => {
     setIsVerified(true);
