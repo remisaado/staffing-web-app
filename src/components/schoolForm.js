@@ -14,7 +14,6 @@ const SchoolForm = () => {
   const [substitutes, setSubstitutes] = useState([
     {date: "", time: "", info: ""}
 ]);
-  // const navigate = useNavigate();
 
   const handleSubmit = async(e) => {
     e.preventDefault();

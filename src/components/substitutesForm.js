@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import { useNavigate } from "react-router-dom";
 
 const SubstitutesForm = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -14,7 +13,6 @@ const SubstitutesForm = () => {
   const [availability, setAvailability] = useState("");
   const [cvFile, setCvFile] = useState(null);
   const [otherFile, setOtherFile] = useState(null);
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
