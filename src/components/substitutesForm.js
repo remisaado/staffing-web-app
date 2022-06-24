@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 
 const SubstitutesForm = () => {
@@ -13,6 +13,10 @@ const SubstitutesForm = () => {
   const [availability, setAvailability] = useState("");
   const [cvFile, setCvFile] = useState(null);
   const [otherFile, setOtherFile] = useState(null);
+
+  const cvInputRef = useRef(null);
+  const otherInputRef = useRef(null);
+  const recaptchaRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +40,7 @@ const SubstitutesForm = () => {
       if (res.ok)
       {
         console.log("Res is ok!");
+        resetForm();
       }
       else
       {
@@ -46,6 +51,21 @@ const SubstitutesForm = () => {
 
   const handleCaptcha = () => {
     setIsVerified(true);
+  }
+
+  const resetForm = () => {
+    recaptchaRef.current.reset();
+    setIsVerified(false);
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setAddress("");
+    setCity("");
+    setPostalCode("");
+    setAvailability("");
+    cvInputRef.current.value = null;
+    otherInputRef.current.value = null;
   }
 
   return (
@@ -110,24 +130,42 @@ const SubstitutesForm = () => {
         </div>
         <label>Ungefär hur ofta kan du jobba i veckan?</label>
         <div
-          className="radio-container"
-          onChange={(e) => setAvailability(e.target.value)}>
-          <label><input type="radio" name="days" value="1-2"/> 1-2 dagar</label>
-          <label><input type="radio" name="days" value="2-3"/> 2-3 dagar</label>
-          <label><input type="radio" name="days" value="3-4"/> 3-4 dagar</label>
-          <label><input type="radio" name="days" value="4-5"/> 4-5 dagar</label>
+          className="radio-container">
+          <label><input
+            type="radio"
+            name="days"
+            onChange={(e) => setAvailability("1-2")}
+            checked={availability === "1-2"}/> 1-2 dagar</label>
+          <label><input
+            type="radio"
+            name="days"
+            onChange={(e) => setAvailability("2-3")}
+            checked={availability === "2-3"}/> 2-3 dagar</label>
+          <label><input
+            type="radio"
+            name="days"
+            onChange={(e) => setAvailability("3-4")}
+            checked={availability === "3-4"}/> 3-4 dagar</label>
+          <label><input
+            type="radio"
+            name="days"
+            onChange={(e) => setAvailability("4-5")}
+            checked={availability === "4-5"}/> 4-5 dagar</label>
         </div>
         <label>CV</label>
         <input
+          ref={cvInputRef}
           type="file"
           onChange={(e) => setCvFile(e.target.files[0])}
           required/>
         <label>Personligt brev</label>
         <input
+          ref={otherInputRef}
           type="file"
           onChange={(e) => setOtherFile(e.target.files[0])}
           required/>
         <ReCAPTCHA
+          ref={recaptchaRef}
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={handleCaptcha}
         />

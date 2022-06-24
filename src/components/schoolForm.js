@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,9 @@ const SchoolForm = () => {
   const [email, setEmail] = useState("");
   const [substitutes, setSubstitutes] = useState([
     {date: "", time: "", info: ""}
-]);
+  ]);
+
+  const recaptchaRef = useRef();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const SchoolForm = () => {
         if (res.status)
         {
           console.log("Res is ok!");
+          resetForm();
         }
         else
         {
@@ -83,6 +86,17 @@ const SchoolForm = () => {
       values.splice(index, 1);
       setSubstitutes(values);
     }
+  }
+
+  const resetForm = () => {
+    recaptchaRef.current.reset();
+    setIsVerified(false);
+    setSchool("");
+    setAddress("");
+    setName("");
+    setPhone("");
+    setEmail("");
+    setSubstitutes([{date: "", time: "", info: ""}]);
   }
 
   return (
@@ -175,6 +189,7 @@ const SchoolForm = () => {
           </div>
         ))}
         <ReCAPTCHA
+          ref={recaptchaRef}
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={handleCaptcha}
         />
