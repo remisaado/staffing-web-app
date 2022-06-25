@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const SchoolForm = () => {
+  const [submitStatus, setSubmitStatus] = useState("");
+  const [submitResponse, setSubmitResponse] = useState("");
   const [isVerified, setIsVerified] = useState(false);
   const [school, setSchool] = useState("");
   const [address, setAddress] = useState("");
@@ -19,6 +21,8 @@ const SchoolForm = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setSubmitStatus("");
+    setSubmitResponse("");
 
     try {
       await axios.post("http://localhost:4000/send_schools_form", {
@@ -31,19 +35,17 @@ const SchoolForm = () => {
       }).then((res) => {
         if (res.status)
         {
-          console.log("Res is ok!");
+          setSubmitStatus("Resolved");
+          setSubmitResponse("Din begäran har skickats!");
           resetForm();
-        }
-        else
-        {
-          console.log("There has been an error!");
         }
       });
     }
     catch (error) {
       console.log(error);
+      setSubmitStatus("Error");
+      setSubmitResponse(error.message);
     }
-
     // let formData = new FormData();
     // formData.append("school", school);
     // formData.append("address", address);
@@ -192,7 +194,8 @@ const SchoolForm = () => {
           ref={recaptchaRef}
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={handleCaptcha}
-        />
+          />
+        <p className={`submit-response-text ${submitStatus === "Resolved" ? "green" : "red"}`}>{submitResponse}</p>
         <button
           disabled={!isVerified}
           className="submit-button"

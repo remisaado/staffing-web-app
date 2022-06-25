@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 
 const SubstitutesForm = () => {
+  const [submitStatus, setSubmitStatus] = useState("");
+  const [submitResponse, setSubmitResponse] = useState("");
   const [isVerified, setIsVerified] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,8 +20,10 @@ const SubstitutesForm = () => {
   const otherInputRef = useRef(null);
   const recaptchaRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    setSubmitStatus("");
+    setSubmitResponse("");
 
     let formData = new FormData();
     formData.append("firstName", firstName);
@@ -33,21 +37,28 @@ const SubstitutesForm = () => {
     formData.append("cvFile", cvFile);
     formData.append("otherFile", otherFile);
 
-    fetch("http://localhost:4000/send_substitutes_form", {
-      method: 'POST',
-      body: formData
-    }).then((res) => {
-      if (res.ok)
-      {
-        console.log("Res is ok!");
+    try {
+      await fetch("http://localhost:4000/send_substitutes_form", {
+        method: 'POST',
+        body: formData
+      }).then((res) => {
+        console.log(res)
+        if (!res.ok)
+        {
+          throw Error(res.statusText);
+        }
+        setSubmitStatus("Resolved");
+        setSubmitResponse("Din ansökan har skickats!");
         resetForm();
-      }
-      else
-      {
-        console.log("There has been an error!");
-      }
-    });
-  }
+      });
+    }
+    catch (error) {
+      console.log(error);
+      setSubmitStatus("Error");
+      setSubmitResponse(error.message);
+    }
+    console.log("submitStatus: " + submitStatus);
+}
 
   const handleCaptcha = () => {
     setIsVerified(true);
@@ -168,7 +179,8 @@ const SubstitutesForm = () => {
           ref={recaptchaRef}
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={handleCaptcha}
-        />
+          />
+        <p className={`submit-response-text ${submitStatus === "Resolved" ? "green" : "red"}`}>{submitResponse}</p>
         <button
           disabled={!isVerified}
           className="submit-button"

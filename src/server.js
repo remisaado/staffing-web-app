@@ -51,7 +51,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
     </ul>
     <ul>${substitutesList}</ul>
     `
-  }, (err, data) => {
+  }, (err) => {
     if (err) {
       console.log(err);
       res.status(400).send('Error');
@@ -107,7 +107,7 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
       filename: req.files["otherFile"][0].originalname,
       content: req.files["otherFile"][0].buffer
     }]
-  }, (err, data) => {
+  }, (err) => {
     if (err) {
       console.log(err);
       res.status(400).send('Error');
