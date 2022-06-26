@@ -80,7 +80,6 @@ const SubstitutesForm = () => {
   }
 
   return (
-    <section className="form-section substitutes-form-section">
       <form
         className="form"
         onSubmit={handleSubmit}>
@@ -186,7 +185,6 @@ const SubstitutesForm = () => {
           className="submit-button"
           type="submit">Skicka</button>
       </form>
-    </section>
   );
 }
 

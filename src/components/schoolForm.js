@@ -102,7 +102,6 @@ const SchoolForm = () => {
   }
 
   return (
-    <section className="form-section school-form-section">
       <form
         className="form"
         onSubmit={handleSubmit}>
@@ -181,7 +180,7 @@ const SchoolForm = () => {
                 <div className="form-icons-group">
                   <FontAwesomeIcon
                     icon={faMinus}
-                    className="form-icons remove-icon"
+                    className={substitutes.length > 1 ? "form-icons remove-icon" : "hide"}
                     onClick={() => removeSubstitute(index)}/>
                   <FontAwesomeIcon
                     icon={faPlus}
@@ -202,7 +201,6 @@ const SchoolForm = () => {
           className="submit-button"
           type="submit">Skicka</button>
       </form>
-    </section>
   );
 }
 
