@@ -155,6 +155,7 @@ const SchoolForm = () => {
                 <input
                   name="date"
                   type="date"
+                  max={ "9999-12-31"}
                   value={substitute.date}
                   onChange={event => handleInputChange(index, event)}/>
               </div>
