@@ -230,15 +230,15 @@ body {
 }
 
 /*Forms*/
+.form-section {
+  margin: auto;
+  padding: 8vh 5rem;
+  background-color: hsl(17, 18%, 90%);
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  padding: 3rem 2rem;
-  margin: 10vh auto;
-  max-width: 50rem;
-  background-color: hsl(210, 75.5%, 97%);
-  border: 0.1rem solid hsl(210, 75.5%, 94%);
-  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.15), -2px -2px 5px hsla(0, 0%, 0%, 0.15);
 }
 
 .form h2 {
@@ -264,7 +264,7 @@ body {
 .form input:focus,
 .form textArea:focus {
   border-color: #05f7ff;
-  background-color: hsla(0, 0%, 100%, 0.6);
+  background-color: hsla(0, 0%, 100%, 0.3);
 }
 
 .form input[type="file"] {
@@ -454,6 +454,11 @@ body {
     flex-basis: 50%;
     padding: 5vh 0;
   }
+
+/*Forms*/
+  .form-section {
+    padding: 8vh 2.5rem;
+  }
 }
 
 @media (max-width: 500px) {
@@ -498,5 +503,9 @@ body {
   .form-icons {
     margin: 0.5rem 0.25rem;
     flex-basis: 100%;
+  }
+/*Forms*/
+  .form-section {
+    padding: 8vh 1rem;
   }
 }

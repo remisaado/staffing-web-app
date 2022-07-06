@@ -102,6 +102,7 @@ const SchoolForm = () => {
   }
 
   return (
+    <section className="form-section substitutes-form-section">
       <form
         className="form"
         onSubmit={handleSubmit}>
@@ -201,6 +202,7 @@ const SchoolForm = () => {
           className="submit-button"
           type="submit">Skicka</button>
       </form>
+    </section>
   );
 }
 
