@@ -150,19 +150,23 @@ body {
   font-weight: 700;
   margin: 0.5rem;
   padding: 1.1rem 2.5rem;
-  color: var(--lightTheme);
+  /* color: var(--lightTheme);
   background-color: var(--transparent);
-  border: 0.1rem solid var(--lightTheme);
+  border: 0.1rem solid var(--darkTheme); */
   border-radius: 0.1rem;
   text-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.3);
   box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.2);
   text-decoration: none;
   transition: all 0.35s;
+  background-color: var(--darkTheme);
+  color: white;
 }
 
 .buttons-container a:hover {
-  color: hsl(118, 70%, 43%);
-  border-color: hsl(118, 70%, 43%);
+  background-color: white;
+  color: var(--darkTheme);
+  /* color: hsl(118, 70%, 43%);
+  border-color: hsl(118, 70%, 43%); */
   box-shadow: 8px 8px 12px hsla(0, 0%, 0%, 0.2);
 }
 
