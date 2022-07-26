@@ -46,22 +46,6 @@ const SchoolForm = () => {
       setSubmitStatus("Error");
       setSubmitResponse(error.message);
     }
-    // let formData = new FormData();
-    // formData.append("school", school);
-    // formData.append("address", address);
-    // formData.append("name", name);
-    // formData.append("phone", phone);
-    // formData.append("email", email);
-    // substitutes.forEach(substitute => {
-    //   formData.append("substitutes", JSON.stringify(substitute))
-    // });
-    //
-    // console.log(formData.getAll('substitutes'));
-    //
-    // fetch("http://localhost:4000/send_schools_form", {
-    //   method: 'POST',
-    //   body: formData
-    // })
   }
 
   const handleCaptcha = () => {

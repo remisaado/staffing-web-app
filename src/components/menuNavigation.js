@@ -22,26 +22,13 @@ function MenuNavigation() {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   })
-// {
-//   const menuTransitions = useTransition(menuToggled, {
-//     from: { opacity: 0, transform: 'translateX(-100%)' },
-//     enter: { opacity: 1, transform: 'translateX(0%)'  },
-//     leave: { opacity: 0, transform: 'translateX(-100%)'  },
-//   })
-// }
+  
   return (
     <div>
       <FontAwesomeIcon
         className="menu-bar-icon"
         icon={menuToggled ? faTimes : faBars}
         onClick={() => setMenuToggled(!menuToggled)}/>
-        {/*menuTransitions(
-          (styles, item) => item &&
-          <animated.div
-            style={styles}
-            className="menu">
-          </animated.div>
-        )*/}
           <ul
             id="main-menu"
             className={menuToggled ? "menu-active" : "menu-inactive"}>

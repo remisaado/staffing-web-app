@@ -122,10 +122,6 @@ body {
 }
 
 .main-page-text {
-  /* position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0; */
   margin: 0 auto;
   max-width: 60vw;
   text-align: center;
@@ -138,8 +134,6 @@ body {
 
 .buttons-container {
   display: flex;
-  /* position: absolute;
-  top: 60%; */
   justify-content: center;
   width: 100%;
 }
@@ -150,9 +144,6 @@ body {
   font-weight: 700;
   margin: 0.5rem;
   padding: 1.1rem 2.5rem;
-  /* color: var(--lightTheme);
-  background-color: var(--transparent);
-  border: 0.1rem solid var(--darkTheme); */
   border-radius: 0.1rem;
   text-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.3);
   box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.2);
@@ -165,8 +156,6 @@ body {
 .buttons-container a:hover {
   background-color: white;
   color: var(--darkTheme);
-  /* color: hsl(118, 70%, 43%);
-  border-color: hsl(118, 70%, 43%); */
   box-shadow: 8px 8px 12px hsla(0, 0%, 0%, 0.2);
 }
 
@@ -422,17 +411,6 @@ body {
     z-index: 10;
   }
 
-/*
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 320px;
-    height: 100%;
-    z-index: 5;
-    background-color: var(--theme);
-  }
-*/
   .menu-mask {
     position: fixed;
     top: 0;
