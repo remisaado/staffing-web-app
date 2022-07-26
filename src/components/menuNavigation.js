@@ -77,7 +77,7 @@ function MenuNavigation() {
               <Link
                 to="/"
                 onClick={() => setMenuToggled(false)}>
-                LOGGA IN
+                HEM
               </Link>
             </li>
           </ul>

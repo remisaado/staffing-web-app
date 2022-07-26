@@ -10,24 +10,24 @@ const Footer = () => {
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faMobileAlt}/>
         <h4>Telefon</h4>
-        <p>031-123456</p>
+        <p>010-1717551</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faEnvelope}/>
         <h4>E-post</h4>
-        <p>kontakt@lararcentralen.se</p>
+        <p>kontakt@vikariecentralen.se</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faBuilding}/>
         <h4>Adress</h4>
-        <p>Hemgatan 123</p>
-        <p>Göteborg</p>
+        <p>Gånglåten 59</p>
+        <p>Västra Frölunda, 421 46</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faClock}/>
         <h4>Öppettider</h4>
         <p>Måndag - Fredag</p>
-        <p>00:00-00:00</p>
+        <p>07:00-18:00</p>
       </div>
     </footer>
   );

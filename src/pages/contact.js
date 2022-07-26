@@ -8,12 +8,13 @@ const Contact = () => {
       <div className="contact-info-box">
         <ul>
           <li><h4>Kontakt</h4></li>
-          <li>Telefon: 031-123456</li>
-          <li>E-post: hej@hotmail.com</li>
+          <li>Telefon: 010-1717551</li>
+          <li>E-post: kontakt@vikariecentralen.se</li>
           <li><h4>Öppettider</h4></li>
-          <li>Måndag - Fredag 00:00-00:00</li>
+          <li>Måndag - Fredag 07:00-18:00</li>
           <li><h4>Adress</h4></li>
-          <li>Hemgatan 123, Göteborg</li>
+          <li>Gånglåten 59</li>
+          <li>Västra Frölunda, 421 46</li>
         </ul>
       </div>
     </div>
