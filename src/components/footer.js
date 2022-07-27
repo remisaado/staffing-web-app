@@ -27,7 +27,7 @@ const Footer = () => {
         <FontAwesomeIcon className="icon-style" icon={faClock}/>
         <h4>Öppettider</h4>
         <p>Måndag - Fredag</p>
-        <p>07:00-18:00</p>
+        <p>06:00-18:00</p>
       </div>
     </footer>
   );
