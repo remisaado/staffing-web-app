@@ -4,6 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const SubstitutesForm = () => {
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitResponse, setSubmitResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -24,6 +25,7 @@ const SubstitutesForm = () => {
     e.preventDefault();
     setSubmitStatus("");
     setSubmitResponse("");
+    setIsLoading(true);
 
     let formData = new FormData();
     formData.append("firstName", firstName);
@@ -57,7 +59,7 @@ const SubstitutesForm = () => {
       setSubmitStatus("Error");
       setSubmitResponse(error.message);
     }
-    console.log("submitStatus: " + submitStatus);
+    setIsLoading(false);
 }
 
   const handleCaptcha = () => {
@@ -177,14 +179,14 @@ const SubstitutesForm = () => {
           required/>
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          sitekey={process.env.REACT_APP_RECAPTCHA_TEST_KEY}
           onChange={handleCaptcha}
           />
         <p className={`submit-response-text ${submitStatus === "Resolved" ? "green" : "red"}`}>{submitResponse}</p>
         <button
-          disabled={!isVerified}
-          className="submit-button"
-          type="submit">Skicka</button>
+          disabled={!isVerified || isLoading}
+          className={`submit-button ${isLoading ? "disabled-button" : ""}`}
+          type="submit">{isLoading ? "Skickar..." : "Skicka"}</button>
       </form>
     </section>
   );

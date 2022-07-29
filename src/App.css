@@ -37,6 +37,10 @@ body {
   color: red;
 }
 
+.disabled-button {
+  opacity: 0.5;
+}
+
 /*Header*/
 .header-container {
   position: relative;
@@ -293,11 +297,11 @@ body {
   transition: background-color 0.3s;
 }
 
-.form button:hover {
+.form button:hover:enabled {
   opacity: 0.8;
 }
 
-.form button:active {
+.form button:active:enabled {
   opacity: 0.6;
 }
 

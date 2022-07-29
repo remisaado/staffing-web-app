@@ -7,6 +7,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 const SchoolForm = () => {
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitResponse, setSubmitResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [school, setSchool] = useState("");
   const [address, setAddress] = useState("");
@@ -23,6 +24,7 @@ const SchoolForm = () => {
     e.preventDefault();
     setSubmitStatus("");
     setSubmitResponse("");
+    setIsLoading(true);
 
     try {
       await axios.post("http://localhost:4000/send_schools_form", {
@@ -46,6 +48,7 @@ const SchoolForm = () => {
       setSubmitStatus("Error");
       setSubmitResponse(error.message);
     }
+    setIsLoading(false);
   }
 
   const handleCaptcha = () => {
@@ -177,14 +180,14 @@ const SchoolForm = () => {
         ))}
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          sitekey={process.env.REACT_APP_RECAPTCHA_TEST_KEY}
           onChange={handleCaptcha}
           />
         <p className={`submit-response-text ${submitStatus === "Resolved" ? "green" : "red"}`}>{submitResponse}</p>
         <button
-          disabled={!isVerified}
-          className="submit-button"
-          type="submit">Skicka</button>
+          disabled={!isVerified || isLoading}
+          className={`submit-button ${isLoading === true ? "disabled-button" : ""}`}
+          type="submit">{isLoading ? "Skickar..." : "Skicka"}</button>
       </form>
     </section>
   );
