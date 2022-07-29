@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("dotenv").config();
+require("dotenv").config({path: "../.env"});
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
@@ -15,11 +15,12 @@ const transport = nodemailer.createTransport({
   host: "smtp-mail.outlook.com",
   port: 587,
   auth: {
-    user: process.env.USER,
+    user: process.env.USER_SENDER,
     pass: process.env.PASS
   },
   tls: {
     rejectUnauthorized: false
+    //Change to true
   }
 });
 
@@ -39,7 +40,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
 
   await transport.sendMail({
     from: `${name}`,
-    to: process.env.USER,
+    to: process.env.USER_RECEIVER,
     subject: "Substitutes request application",
     html: `
     <ul>
@@ -87,7 +88,7 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
 
   await transport.sendMail({
     from: `${firstName} ${lastName}`,
-    to: process.env.USER,
+    to: process.env.USER_RECEIVER,
     subject: "Work application",
     html: `
     <ul>
@@ -117,6 +118,8 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
   })
 });
 
-app.listen(4000, () => {
-  console.log("Server is listening on port 4000");
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log("Server is listening on port " + PORT);
 });
