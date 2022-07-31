@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import { config } from "../constants.js";
 
 const SubstitutesForm = () => {
   const [submitStatus, setSubmitStatus] = useState("");
@@ -21,6 +22,8 @@ const SubstitutesForm = () => {
   const otherInputRef = useRef(null);
   const recaptchaRef = useRef();
 
+  const baseUrl = config.url;
+
   const handleSubmit = async(e) => {
     e.preventDefault();
     setSubmitStatus("");
@@ -40,7 +43,7 @@ const SubstitutesForm = () => {
     formData.append("otherFile", otherFile);
 
     try {
-      await fetch("http://localhost:4000/send_substitutes_form", {
+      await fetch(`${baseUrl}/send_substitutes_form`, {
         method: 'POST',
         body: formData
       }).then((res) => {

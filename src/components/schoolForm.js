@@ -3,6 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { config } from "../constants.js";
 
 const SchoolForm = () => {
   const [submitStatus, setSubmitStatus] = useState("");
@@ -20,6 +21,8 @@ const SchoolForm = () => {
 
   const recaptchaRef = useRef();
 
+  const baseUrl = config.url;
+
   const handleSubmit = async(e) => {
     e.preventDefault();
     setSubmitStatus("");
@@ -27,7 +30,7 @@ const SchoolForm = () => {
     setIsLoading(true);
 
     try {
-      await axios.post("http://localhost:4000/send_schools_form", {
+      await axios.post(`${baseUrl}/send_schools_form`, {
         school,
         address,
         name,
