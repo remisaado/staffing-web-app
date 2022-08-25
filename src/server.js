@@ -12,15 +12,15 @@ app.use(express.json());
 app.use(cors());
 
 const transport = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com",
-  port: 587,
+  host: "nl1-ss102.a2hosting.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.USER_SENDER,
     pass: process.env.PASS
   },
   tls: {
-    rejectUnauthorized: false
-    //Change to true
+    rejectUnauthorized: true
   }
 });
 

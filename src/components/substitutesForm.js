@@ -182,7 +182,7 @@ const SubstitutesForm = () => {
           required/>
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey={process.env.REACT_APP_RECAPTCHA_TEST_KEY}
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
           onChange={handleCaptcha}
           />
         <p className={`submit-response-text ${submitStatus === "Resolved" ? "green" : "red"}`}>{submitResponse}</p>
