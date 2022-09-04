@@ -4,6 +4,7 @@ require("dotenv").config({path: "../.env"});
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+var sgTransport = require('nodemailer-sendgrid-transport');
 const multer = require("multer");
 
 app.use(express.urlencoded({extended: true}));
@@ -11,18 +12,11 @@ app.use(express.json());
 
 app.use(cors());
 
-const transport = nodemailer.createTransport({
-  host: "nl1-ss102.a2hosting.com",
-  port: 465,
-  secure: true,
+const transport = nodemailer.createTransport(sgTransport({
   auth: {
-    user: process.env.USER_SENDER,
-    pass: process.env.PASS
-  },
-  tls: {
-    rejectUnauthorized: true
+    api_key: process.env.SG_API_KEY
   }
-});
+}));
 
 app.post("/send_schools_form", cors(), async (req, res) => {
   let {
@@ -39,9 +33,9 @@ app.post("/send_schools_form", cors(), async (req, res) => {
 }, '');
 
   await transport.sendMail({
-    from: `${name}`,
+    from: process.env.USER_SENDER,
     to: process.env.USER_RECEIVER,
-    subject: "Substitutes request application",
+    subject: "Vikarie begäran",
     html: `
     <ul>
       <li>Skola: ${school}</li>
@@ -87,9 +81,9 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
   } = req.body;
 
   await transport.sendMail({
-    from: `${firstName} ${lastName}`,
+    from: process.env.USER_SENDER,
     to: process.env.USER_RECEIVER,
-    subject: "Work application",
+    subject: "Arbetsansökan",
     html: `
     <ul>
       <li>Namn: ${firstName} ${lastName}</li>
