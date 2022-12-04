@@ -13,8 +13,8 @@ const Contact = () => {
           <li><h4>Öppettider</h4></li>
           <li>Måndag - Fredag 06:00-18:00</li>
           <li><h4>Adress</h4></li>
-          <li>Gånglåten 59</li>
-          <li>Västra Frölunda, 421 46</li>
+          <li>F O Petersons gata 6</li>
+          <li>Västra Frölunda, 421 31</li>
         </ul>
       </div>
     </div>

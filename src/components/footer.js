@@ -20,8 +20,8 @@ const Footer = () => {
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faBuilding}/>
         <h4>Adress</h4>
-        <p>Gånglåten 59</p>
-        <p>Västra Frölunda, 421 46</p>
+        <p>F O Petersons gata 6</p>
+        <p>Västra Frölunda, 421 31</p>
       </div>
       <div className="info-container">
         <FontAwesomeIcon className="icon-style" icon={faClock}/>
