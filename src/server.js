@@ -35,7 +35,7 @@ app.post("/send_schools_form", cors(), async (req, res) => {
   await transport.sendMail({
     from: process.env.USER_SENDER,
     to: process.env.USER_RECEIVER,
-    subject: "Vikarie begäran",
+    subject: `Vikarie begäran ${school}`,
     html: `
     <ul>
       <li>Skola: ${school}</li>
@@ -83,7 +83,7 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
   await transport.sendMail({
     from: process.env.USER_SENDER,
     to: process.env.USER_RECEIVER,
-    subject: "Arbetsansökan",
+    subject: `Arbetsansökan ${firstName} ${lastName}`,
     html: `
     <ul>
       <li>Namn: ${firstName} ${lastName}</li>
