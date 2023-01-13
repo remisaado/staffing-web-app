@@ -6,6 +6,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 var sgTransport = require('nodemailer-sendgrid-transport');
 const multer = require("multer");
+const path = require("path");
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -110,6 +111,10 @@ app.post("/send_substitutes_form", middleware, async (req, res) => {
       res.status(200).send('Success');
     }
   })
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 const PORT = process.env.PORT || 4000;
