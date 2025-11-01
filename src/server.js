@@ -119,8 +119,10 @@ app.post(
 );
 
 // Serve frontend
+app.use(express.static(path.join(__dirname, "../public_html")));
+
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../public_html/index.html"));
 });
 
 // ------------------- Start server -------------------
