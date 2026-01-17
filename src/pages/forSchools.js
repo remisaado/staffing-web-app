@@ -1,5 +1,8 @@
 import React from 'react';
-import { SchoolForm } from '../components';
+//import { SchoolForm } from '../components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ForSchools = () => {
 
@@ -14,12 +17,17 @@ const ForSchools = () => {
         <p>{textBody}</p>
         <p>{textBodyTwo}</p>
         <p>{textBodyThree}</p>
-        <p>
-          För att boka vikarier kan du nå oss genom mail,
-          kontakt@vikariecentralen.se, telefon, 010-1717551 eller genom formuläret nedan.
-        </p>
+        <div className="contact-highlight-card">
+          <p>För att boka vikarier kan ni nå oss genom mail och telefon</p>
+          <span className="contact-method">
+            <FontAwesomeIcon className="contact-icon-style" icon={faEnvelope}/> <a href="mailto:kontakt@vikariecentralen.se">kontakt@vikariecentralen.se</a>
+          </span>
+          <span className="contact-method">
+            <FontAwesomeIcon className="contact-icon-style" icon={faMobileAlt}/> <a href="tel:0101717551">010-1717551</a>
+          </span>
+        </div>
       </div>
-      <SchoolForm/>
+      {/*<SchoolForm/>*/}
     </div>
   );
 }
